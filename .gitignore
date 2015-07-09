@@ -1,2 +1,7 @@
 /.pants.d/
+/.pids/
+/build-support/ivy/cache/*.css
+/build-support/ivy/cache/*.properties
+/build-support/ivy/cache/*.xml
+/build-support/ivy/cache/*.xsl
 /dist/
