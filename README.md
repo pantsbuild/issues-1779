@@ -15,7 +15,7 @@ A few things to try out to sample the workflow:
    $ diff /tmp/before /tmp/after
    ```
 
-   You'll notice a few things here.  First, the git status command will show no repo changes after the resolve.  However the diff of the `build-support/ivy/cache/` contents will show new files after the resolve.  These files are `.gitignore`d since they contain machine-specific paths and volatile timestamps.  As it turns out, ivy generates these files very quickly when not present, so this has a minimal impact on 1st-resolve times.
+   You'll notice a few things here.  First, the `git status` command will show no repo changes after the resolve.  However the diff of the `build-support/ivy/cache/` contents will show new files after the resolve.  These files are `.gitignore`d since they contain machine-specific paths and volatile timestamps.  As it turns out, ivy generates these files very quickly when not present, so this has a minimal impact on 1st-resolve times.
 
 2. Run a resolve that finds new jars:
 
