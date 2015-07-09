@@ -11,3 +11,4 @@ jar_library(
     jar('xalan', 'xalan', '2.7.2')
   ]
 )
+

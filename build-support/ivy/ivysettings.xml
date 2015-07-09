@@ -20,7 +20,14 @@ Licensed under the Apache License, Version 2.0 (see LICENSE).
         <artifact pattern="${checked-in.repo.dir}/${checked-in.repo.artifact}"/>
       </filesystem>
  
-      <!-- the default resolver shipped with ivy -->
+      <!-- Fall back to finding new/changed deps on maven central.
+           This will result in untracked files (poms and jars) in the git repo.
+           If the untracked files are not checked in but the new/changed deps are,
+           then builds still work for everyone, they're just slower and potentially
+           less stable (everyone will have to hit maven central).
+           If the untracked files are checked in, then folks will get fast, stable
+           resolves.
+           -->
       <ibiblio name="maven-central" m2compatible="true" descriptor="required"/>
     </chain>
   </resolvers>
