@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2015 Pants project contributors (see CONTRIBUTORS.md).
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+-->
+
+<ivysettings>
+  <settings defaultResolver="pants-chain-repos"/>
+
+  <property name="checked-in.repo.relpath" value="[organisation]/[module]/[revision]"/>
+  <property name="checked-in.repo.pom" value="${checked-in.repo.relpath}/[module]-[revision].pom"/>
+  <property name="checked-in.repo.artifact"
+            value="${checked-in.repo.relpath}/[artifact](-[classifier])-[revision].[ext]"/>
+  <property name="checked-in.repo.dir" value="${ivy.cache.dir}"/>
+
+  <resolvers>
+    <chain name="pants-chain-repos" returnFirst="true">
+      <filesystem name="checked-in" m2compatible="true" local="true" descriptor="optional">
+        <ivy pattern="${checked-in.repo.dir}/${checked-in.repo.pom}"/>
+        <artifact pattern="${checked-in.repo.dir}/${checked-in.repo.artifact}"/>
+      </filesystem>
+ 
+      <!-- the default resolver shipped with ivy -->
+      <ibiblio name="maven-central" m2compatible="true" descriptor="required"/>
+    </chain>
+  </resolvers>
+
+  <caches defaultCacheDir="${ivy.cache.dir}"
+          ivyPattern="${checked-in.repo.pom}"
+          artifactPattern="${checked-in.repo.artifact}"
+          useOrigin="true"
+          lockStrategy="no-lock"/>
+</ivysettings>

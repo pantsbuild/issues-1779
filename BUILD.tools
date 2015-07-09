@@ -1,0 +1,6 @@
+jar_library(
+  name='nailgun-server',
+  jars=[
+    jar('com.martiansoftware', 'nailgun-server', '0.9.1')
+  ]
+)
