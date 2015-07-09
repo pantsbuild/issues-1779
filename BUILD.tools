@@ -4,3 +4,10 @@ jar_library(
     jar('com.martiansoftware', 'nailgun-server', '0.9.1')
   ]
 )
+
+jar_library(
+  name='xalan',
+  jars=[
+    jar('xalan', 'xalan', '2.7.2')
+  ]
+)
